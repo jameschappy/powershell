@@ -56,4 +56,10 @@ $PSStandardMembers = [System.Management.Automation.PSMemberInfo[]]@($defaultDisp
 
 $object | Add-Member MemberSet PSStandardMembers $PSStandardMembers
 
+<#
 
+Even easier way!!
+
+Update-TypeData -TypeName User.Information -DefaultDisplayPropertySet FirstName,LastName,Phone
+
+#>
