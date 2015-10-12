@@ -67,3 +67,22 @@ $acl.SetAccessRule($rule)
 Set-Acl -path $path -AclObject $acl
 
 
+
+#creating a file share using cim session
+
+$cimsession = New-CimSession -ComputerName "James-WIN10"
+
+
+#hash table with settings
+
+$shareparams = @{
+    Name = "Share2"
+    Path = "C:\Users\James Chapman\Documents\Share"
+    Description = "New Share"
+    FullAccess = "BUILTIN\Administrators"
+    ChangeAccess = "BUILTIN\Users"
+    CachingMode = "Documents"
+    CIMSESSION = $cimsession
+}
+
+New-SmbShare @shareparams
